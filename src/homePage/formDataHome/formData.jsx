@@ -3,7 +3,7 @@ import { useState } from "react"
 
 
 
-function Form({todoList,  addCardList, updateValue}) {
+function Form({ addCardList, updateValue}) {
 
     const [formData, setFormData] = useState({
         description: '',
@@ -15,6 +15,8 @@ function Form({todoList,  addCardList, updateValue}) {
         event.preventDefault();
         addCardList(formData)
     }
+
+
 
 
     return (

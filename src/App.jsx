@@ -6,21 +6,21 @@ import HomePage from './homePage/homepage';
 
 function App() {
 
-  const [page, setPage] = useState('IndexPage')
+  const [isIndex, setIsIndex] = useState(true)
 
   const handleClick = () =>{
     
-    page === 'IndexPage' ? setPage('HomePage') : setPage('IndexPage')
+    setIsIndex(!isIndex)
     
   }
 
   return (
     <>
       {
-        page === 'IndexPage' ?
+        isIndex ?
           <IndexPage handleClick={handleClick} />
           :
-          <HomePage />
+          <HomePage  handleClick={handleClick}/>
       }
 
     </>

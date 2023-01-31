@@ -1,36 +1,26 @@
 
 import Delete from '../../assets/delete.svg'
+import './todoCard.css'
 
-function TodoCard({todo}) {
+function TodoCard({ todo, removeCardList }) {
 
-    <>
-        {
-            todo.type_value === 'entrada' ? (
-                <li className='list_item__entry'>
-                    <div className='header_item'>
-                        <h2>{todo.description}</h2>
-                        <p>{todo.type_value}</p>
-                    </div>
-                    <div className='value_item'>
-                        <p>R$ {todo.value}</p>
-                        <img src={Delete} alt="" />
-                    </div>
-                </li>
 
-            ) : (
+    return (
 
-                <li className='list_item__ckeckout'>
-                    <div className='header_item'>
-                        <h2>{todo.description}</h2>
-                        <p>{todo.type_value}</p>
-                    </div>
-                    <div className='value_item'>
-                        <p>R$ {todo.value}</p>
-                        <img src={Delete} alt="" />
-                    </div>
-                </li>
-            )}
-    </>
+        <li className={todo.type_value === 'entrada' ? 'list_item__entry' : 'list_item__checkout'}>
+
+            <div className='header_item'>
+                <h2>{todo.description}</h2>
+                <p>{todo.type_value}</p>
+            </div>
+            <div className='value_item'>
+                <p>R$ {todo.value}</p>
+                <img src={Delete} alt="" onClick={()=>removeCardList(todo.id)} />
+            </div>
+        </li>
+
+
+    )
 
 
 }

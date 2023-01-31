@@ -3,7 +3,6 @@ import './indexPage.css'
 
 function IndexPage({handleClick}){
 
-   
 
     return(
        <main className='main_index_page'>
