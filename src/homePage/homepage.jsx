@@ -1,6 +1,6 @@
 import TodoList from '../todoList'
 import './homepage.css'
-import { useDebugValue, useState } from "react"
+import { useState } from "react"
 import Form from './formDataHome/formData'
 import { v4 as uuidv4 } from 'uuid';
 import BoxValue from '../boxValue';
@@ -36,20 +36,27 @@ function HomePage( {handleClick}) {
         function updateValue() {
 
             const todosValue = todoList.map(todo => {
-    
-                const valueFloat = parseFloat(todo.value)
+              
+                let valueFloat = 0
+
+                if(todo.type_value === 'entrada'){
+                    valueFloat = parseFloat(todo.value)
+                }else{
+                    valueFloat = valueFloat - todo.value
+                }
+                
                 return valueFloat
-    
             })
 
             console.log('todosValue',todosValue)
-          
     
             const sumValue = todosValue.reduce((accumulator, currentValue) => {
                 return accumulator + currentValue;
             }, 0)
             
             console.log('sumValue', sumValue)
+
+           
     
             setValue(sumValue)
     
